@@ -77,9 +77,22 @@ class Wxcontroller extends Controller
             echo $response_text;            // 回复用户消息
         }
 
-        
+        if($msg_type=='image'){
+            $MediaId =$xml_obj->MediaId;
+            $images='<xml>
+            <ToUserName><![CDATA['.$touser.']]></ToUserName>
+            <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+            <CreateTime>'.$time.'</CreateTime>
+            <MsgType><![CDATA[image]]></MsgType>
+            <Image>
+              <MediaId><![CDATA['.$MediaId.']]></MediaId>
+            </Image>
+          </xml>';
+            echo $images;
+        }
 
         
+
     }
 
 
