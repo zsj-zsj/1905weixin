@@ -43,7 +43,7 @@ class Wxcontroller extends Controller
         $xml_obj = simplexml_load_string($xml_str);  //处理xml数据
         //判断消息类型
 
-       
+        $msg_type=$xml_obj->MsgType;
         $touser=$xml_obj->FromUserName;     //接受消息用户openid
         $fromuser=$xml_obj->ToUserName;     //开发者公众号id
         $time=time();
@@ -72,18 +72,18 @@ class Wxcontroller extends Controller
 
                 $wxuser='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
                 $wx_user=file_get_contents($wxuser);
-                $u=json_decode($wx_user,true);
+                $WXUser=json_decode($wx_user,true);
 
                 $user_data=[
-                    'sex'=>$u['sex'],
+                    'sex'=>$WXUser['sex'],
                     'openid'=>$openid,
-                    'sub_time'=>$u->CreateTime,
-                    'nickname'=>$u['nickname']
+                    'sub_time'=>$xml_obj->CreateTime,
+                    'nickname'=>$WXUser['nickname']
                 ];
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注,@'.$u['nickname'];
+                $name='感谢您的关注,@'.$WXUser['nickname'];
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$touser.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
@@ -100,9 +100,7 @@ class Wxcontroller extends Controller
             $user_info=file_get_contents($url);
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
         }
-
-        //判断消息类型
-        $msg_type=$xml_obj->MsgType;
+        
         //文字
         if($msg_type=='text'){
             $content = date('Y-m-d H:i:s') . $xml_obj->Content;
