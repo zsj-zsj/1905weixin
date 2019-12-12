@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Weixin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\WxUserModel;
 
 class Wxcontroller extends Controller
 {
@@ -54,6 +55,36 @@ class Wxcontroller extends Controller
         $event=$xml_obj->Event;   //获取事件类型
         if($event=='subscribe'){
             $openid=$xml_obj->FromUserName;   //获取用户openid
+            $wxuser='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
+            $wx_user=file_get_contents($wxuser);
+            $WXUser=json_decode($wx_user,true);
+
+            $u=WxUserModel::where(['openid'=>$openid])->first();
+            if($u){
+                echo "欢迎回来";die;
+            }else{
+                $name='感谢您的关注'.$WXUser['nickname'];
+                $user_data=[
+                    'sex'=>$WXUser['sex'],
+                    'openid'=>$openid,
+                    'sub_time'=>$xml_obj->CreateTime,
+                    'nickname'=>$WXUser['nickname']
+                ];
+    
+                $uid =WxUserModel::insertGetId($user_data);
+                $guanzhu='<xml>
+                <ToUserName><![CDATA['.$touser.']]></ToUserName>
+                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <CreateTime>'.$time.'</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Image>
+                  <MediaId><![CDATA['.$name.']]></MediaId>
+                </Image>
+              </xml>';
+                echo $guanzhu;
+            }
+            
+
             $url='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
             $user_info=file_get_contents($url);
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
@@ -65,6 +96,7 @@ class Wxcontroller extends Controller
         $fromuser=$xml_obj->ToUserName;     //开发者公众号id
         $time=time();
 
+        //文字
         if($msg_type=='text'){
             $content = date('Y-m-d H:i:s') . $xml_obj->Content;
             $response_text = '<xml>
@@ -76,7 +108,7 @@ class Wxcontroller extends Controller
                             </xml>';
             echo $response_text;            // 回复用户消息
         }
-
+        //图片
         if($msg_type=='image'){
             $MediaId =$xml_obj->MediaId;
             $images='<xml>
@@ -90,9 +122,19 @@ class Wxcontroller extends Controller
           </xml>';
             echo $images;
         }
-
-        
-
+        //语音
+        if($msg_type=='voice'){
+            $Med=$xml_obj->MediaId;
+            $yuyin='<xml>
+            <ToUserName><![CDATA['.$touser.']]></ToUserName>
+            <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+            <CreateTime>'.$time.'</CreateTime>
+            <MsgType><![CDATA[voice]]></MsgType>
+            <Voice>
+              <MediaId><![CDATA['.$Med.']]></MediaId>
+            </Voice>
+          </xml>';
+        }
     }
 
 
