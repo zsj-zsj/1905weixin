@@ -62,9 +62,7 @@ class Wxcontroller extends Controller
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
                 <CreateTime>'.$time.'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
-                <Image>
-                  <MediaId><![CDATA['.$name.']]></MediaId>
-                </Image>
+                <Content><![CDATA['.$name.']]></Content>
               </xml>';
                 echo $guanzhu;
             }else{
@@ -89,9 +87,7 @@ class Wxcontroller extends Controller
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
                 <CreateTime>'.$time.'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
-                <Image>
-                  <MediaId><![CDATA['.$name.']]></MediaId>
-                </Image>
+                <Content><![CDATA['.$name.']]></Content>
               </xml>';
                 echo $guanzhu;
             }
