@@ -58,8 +58,8 @@ class Wxcontroller extends Controller
                 
                 $name='欢迎回来';
                 $guanzhu='<xml>
-                <ToUserName><![CDATA['.$touser.']]></ToUserName>
-                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <ToUserName><![CDATA['.$openid.']]></ToUserName>
+                <FromUserName><![CDATA['.$xml_obj->FromUserName.']]></FromUserName>
                 <CreateTime>'.time().'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
                 <Image>
@@ -83,10 +83,10 @@ class Wxcontroller extends Controller
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注';
+                $name='感谢您的关注'.$WXUser['nickname'];
                 $guanzhu='<xml>
-                <ToUserName><![CDATA['.$touser.']]></ToUserName>
-                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <ToUserName><![CDATA['.$openid.']]></ToUserName>
+                <FromUserName><![CDATA['.$xml_obj->FromUserName.']]></FromUserName>
                 <CreateTime>'.time().'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
                 <Image>
