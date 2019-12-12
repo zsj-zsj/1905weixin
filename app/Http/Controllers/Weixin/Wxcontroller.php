@@ -76,22 +76,22 @@ class Wxcontroller extends Controller
                     'sex'=>$WXUser['sex'],
                     'openid'=>$openid,
                     'sub_time'=>$xml_obj->CreateTime,
-                    'nickname'=>$WXUser['nickname']
+                    'nickname'=>$WXUser['nickname'],
+                    'headimgurl'=>$WXUser['headimgurl']
                 ];
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注,@'.$WXUser['nickname'];
+                $name='感谢您的关注~@'.$WXUser['nickname'];
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$openid.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
                 <CreateTime>'.$time.'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
                 <Content><![CDATA['.$name.']]></Content>
-              </xml>';
+                </xml>';
                 echo $guanzhu;
             }
-            
             $url='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
             $user_info=file_get_contents($url);
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
