@@ -52,6 +52,13 @@ class Wxcontroller extends Controller
 
         $xml_obj = simplexml_load_string($xml_str);  //处理xml数据
 
+        //判断消息类型
+        $msg_type=$xml_obj->MsgType;
+        $touser=$xml_obj->FromUserName;     //接受消息用户openid
+        $fromuser=$xml_obj->ToUserName;     //开发者公众号id
+        $time=time();
+
+
         $event=$xml_obj->Event;   //获取事件类型
         if($event=='subscribe'){
             $openid=$xml_obj->FromUserName;   //获取用户openid
@@ -90,11 +97,7 @@ class Wxcontroller extends Controller
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
         }
 
-        //判断消息类型
-        $msg_type=$xml_obj->MsgType;
-        $touser=$xml_obj->FromUserName;     //接受消息用户openid
-        $fromuser=$xml_obj->ToUserName;     //开发者公众号id
-        $time=time();
+        
 
         //文字
         if($msg_type=='text'){
@@ -134,6 +137,7 @@ class Wxcontroller extends Controller
               <MediaId><![CDATA['.$Med.']]></MediaId>
             </Voice>
           </xml>';
+          echo $Med;
         }
     }
 
