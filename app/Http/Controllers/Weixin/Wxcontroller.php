@@ -59,8 +59,8 @@ class Wxcontroller extends Controller
                 $name='欢迎回来';
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$openid.']]></ToUserName>
-                <FromUserName><![CDATA['.$xml_obj->FromUserName.']]></FromUserName>
-                <CreateTime>'.time().'</CreateTime>
+                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <CreateTime>'.$time.'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
                 <Image>
                   <MediaId><![CDATA['.$name.']]></MediaId>
@@ -86,8 +86,8 @@ class Wxcontroller extends Controller
                 $name='感谢您的关注'.$WXUser['nickname'];
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$openid.']]></ToUserName>
-                <FromUserName><![CDATA['.$xml_obj->FromUserName.']]></FromUserName>
-                <CreateTime>'.time().'</CreateTime>
+                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <CreateTime>'.$time.'</CreateTime>
                 <MsgType><![CDATA[text]]></MsgType>
                 <Image>
                   <MediaId><![CDATA['.$name.']]></MediaId>
