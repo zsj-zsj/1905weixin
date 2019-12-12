@@ -37,13 +37,13 @@ class Wxcontroller extends Controller
     public function receiv(){
         //将接受的数据记录到日志文件
         $log_file="wx.log";
-        $xml_str = file_get_contents("php://input");
+        $xmlstr = file_get_contents("php://input");
         $data = date('Y-m-d H:i:s') . $xml_str;
         file_put_contents($log_file,$data,FILE_APPEND);
-        $xml_obj = simplexml_load_string($xml_str);  //处理xml数据
-        //判断消息类型
+        $xml_obj = simplexml_load_string($xmlstr);  //处理xml数据
 
-        $msg_type=$xml_obj->MsgType;
+        
+
         $touser=$xml_obj->FromUserName;     //接受消息用户openid
         $fromuser=$xml_obj->ToUserName;     //开发者公众号id
         $time=time();
@@ -83,7 +83,7 @@ class Wxcontroller extends Controller
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注,@'.$WXUser['nickname'];
+                $name='感谢您的关注';
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$touser.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
@@ -101,6 +101,9 @@ class Wxcontroller extends Controller
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
         }
         
+    //判断消息类型
+    $msg_type=$xml_obj->MsgType;
+
         //文字
         if($msg_type=='text'){
             $content = date('Y-m-d H:i:s') . $xml_obj->Content;
