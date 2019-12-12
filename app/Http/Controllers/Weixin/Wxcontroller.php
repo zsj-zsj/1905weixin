@@ -81,7 +81,7 @@ class Wxcontroller extends Controller
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注'.$WXUser['nickname'];
+                $name='感谢您的关注,@'.$WXUser['nickname'];
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$openid.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
