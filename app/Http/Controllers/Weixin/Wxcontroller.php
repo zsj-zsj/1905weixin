@@ -72,18 +72,18 @@ class Wxcontroller extends Controller
 
                 $wxuser='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
                 $wx_user=file_get_contents($wxuser);
-                $WXUser=json_decode($wx_user,true);
+                $u=json_decode($wx_user,true);
 
                 $user_data=[
-                    'sex'=>$WXUser['sex'],
+                    'sex'=>$u['sex'],
                     'openid'=>$openid,
-                    'sub_time'=>$xml_obj->CreateTime,
-                    'nickname'=>$WXUser['nickname']
+                    'sub_time'=>$u->CreateTime,
+                    'nickname'=>$u['nickname']
                 ];
                 
                 $uid=WxUserModel::insertGetId($user_data);
 
-                $name='感谢您的关注,@'.$WXUser['nickname'];
+                $name='感谢您的关注,@'.$u['nickname'];
                 $guanzhu='<xml>
                 <ToUserName><![CDATA['.$touser.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
