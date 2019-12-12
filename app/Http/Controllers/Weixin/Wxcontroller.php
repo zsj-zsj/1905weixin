@@ -141,8 +141,9 @@ class Wxcontroller extends Controller
               <MediaId><![CDATA['.$Med.']]></MediaId>
             </Voice>
           </xml>';
-          echo $Med;
+          echo $yuyin;
         }
+
     }
     //获取用户基本信息
     public function  getUserInfo($access_token,$openid){
