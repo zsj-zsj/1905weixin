@@ -28,7 +28,7 @@ class UserController extends AdminController
 
         $grid->column('uid', __('Uid'));
         $grid->column('openid', __('Openid'));
-        $grid->column('sub_time', __('注册时间'))->display(function($time){
+        $grid->column('sub_time', __('关注时间'))->display(function($time){
             return date('Y-m-d h:i:s',$time);
         });
         $grid->column('sex', __('性别'))->display(function($sex){
