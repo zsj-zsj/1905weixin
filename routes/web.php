@@ -29,4 +29,4 @@ Route::get('/wx/test','Weixin\Wxcontroller@test');
 Route::get('/wx','Weixin\Wxcontroller@checkSignature');
 Route::post('/wx','Weixin\Wxcontroller@receiv');   //接受微信推送事件
 Route::get('/wx/getMedia','Weixin\Wxcontroller@getMedia');  //图片
-Route::post('/wx/caidan','Weixin\Wxcontroller@caidan');  //菜单
+Route::get('/wx/caidan','Weixin\Wxcontroller@caidan');  //菜单
