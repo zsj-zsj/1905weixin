@@ -2,7 +2,12 @@
 namespace App\Http\Controllers\Weixin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\WxUserModel;
+
+use App\Model\WxUserModel;  //关注的用户信息
+use App\Model\WxImgModel;   //图片
+use App\Model\WxMsgModel;   //留言
+use App\Model\WxVoiceModel; //语音
+
 use Illuminate\Support\Facades\Redis;
 use GuzzleHttp\Client;
 
@@ -115,10 +120,20 @@ class Wxcontroller extends Controller
         
         $media_id=$xml_obj->MediaId;
         $msg_type=$xml_obj->MsgType;
+
+        $idd=WxUserModel::where('openid','=',$touser)->value('uid');
         //文字
         if($msg_type=='text'){
 
             $content = date('Y-m-d H:i:s') . $xml_obj->Content;
+            $msgss=$xml_obj->Content;
+            $data=[
+                'time'=>$time,
+                'msg'=>$msgss,
+                'uid'=>$idd
+            ];
+            $response_text=WxMsgModel::insert($data);
+
             $response_text = '<xml>
                             <ToUserName><![CDATA['.$touser.']]></ToUserName>
                             <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
@@ -129,7 +144,15 @@ class Wxcontroller extends Controller
             echo $response_text;            // 回复用户消息
         }elseif($msg_type=='image'){
         //图片
-            $this->getMedia($media_id,$msg_type);
+            $img=$this->getMedia($media_id,$msg_type);
+            
+            $data=[
+                'time'=>$time,
+                'img'=>$img,
+                'uid'=>$idd
+            ];
+            $images=WxImgModel::insert($data);
+
             $images='<xml>
                 <ToUserName><![CDATA['.$touser.']]></ToUserName>
                 <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
@@ -142,7 +165,15 @@ class Wxcontroller extends Controller
                 echo $images;
         }elseif($msg_type=='voice'){
         //语音
-            $this->getMedia($media_id,$msg_type);
+            $voice=$this->getMedia($media_id,$msg_type);
+
+            $data=[
+                'uid'=>$idd,
+                'voice'=>$voice,
+                'time'=>$time
+            ];
+            $yuyin=WxVoiceModel::insert($data);
+
             $yuyin='<xml>
             <ToUserName><![CDATA['.$touser.']]></ToUserName>
             <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
@@ -165,7 +196,7 @@ class Wxcontroller extends Controller
         file_put_contents($log_file,$json_str,FILE_APPEND);
     }
 
-
+    //语音图片类型地址
     public function getMedia($media_id,$msg_type){
         $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->access_token.'&media_id='.$media_id;
         //获取素材内容
@@ -190,5 +221,26 @@ class Wxcontroller extends Controller
             $save_path=$save_path . 'voice/' .$file_name;
         }
         file_put_contents($save_path,$file_content);
+        return $save_path;
+    }
+
+    //菜单
+    public function caidan(){
+        $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
+        $menu=[
+            'button' => [
+              [
+                  'type'=>'click',
+                  'name'=>'菜单',
+                  'key'=>'caidan'
+              ],  
+            ]
+            ];
+        $menu_json=json_encode($menu);
+        $client= new Client();
+        $response=$client->request('POST',$url,[
+            'body'=>$menu_json
+        ]);
+        echo $response->getBody();
     }
 }

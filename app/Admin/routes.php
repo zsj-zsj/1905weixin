@@ -12,4 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('users', UserController::class);
+    $router->resource('img', WxImg::class);
+    $router->resource('msg', WxMsg::class);
+    $router->resource('voice', WxgVoice::class);
 });

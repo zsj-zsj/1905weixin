@@ -24,7 +24,7 @@ class UserController extends AdminController
      */
     protected function grid()
     {
-        
+
         $grid = new Grid(new WxUserModel);
 
         $grid->column('uid', __('Uid'));
