@@ -271,7 +271,7 @@ class Wxcontroller extends Controller
                     ],
                     [
                         "type"=>"click",
-                        "name"=>"♥♥♥",
+                        "name"=>"Thanks",
                         "key"=>"adfds",
                     ] 
                 ]
