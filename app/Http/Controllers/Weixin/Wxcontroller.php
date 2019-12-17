@@ -184,6 +184,15 @@ class Wxcontroller extends Controller
             </Voice>
             </xml>';
             echo $yuyin;
+        }elseif($msg_type=='keykey'){
+            $tianqi = '<xml>
+                            <ToUserName><![CDATA['.$touser.']]></ToUserName>
+                            <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                            <CreateTime>'.$time.'</CreateTime>
+                            <MsgType><![CDATA[text]]></MsgType>
+                            <Content><![CDATA['.date('Y-m-d H:i:s').'~你的心情决定天气变化'.']]></Content>
+                            </xml>';
+            echo $tianqi;
         }
     }
 
@@ -252,7 +261,12 @@ class Wxcontroller extends Controller
                         "type"=>"view",
                         "name"=>"无所不能",
                         "url"=>"https://www.baidu.com/",
-                    ], 
+                    ],
+                    [
+                        "type"=>"click",
+                        "name"=>"获取天气",
+                        "key"=>"keykey",
+                    ] 
                 ]
               ]
             ]
