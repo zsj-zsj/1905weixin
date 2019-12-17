@@ -231,9 +231,9 @@ class Wxcontroller extends Controller
             'button' => [
               [
                   'type'=>'click',
-                  'name'=>'菜单',
+                  'name'=>'欢迎',
                   'key'=>'caidan'
-              ],  
+              ],
             ]
         ];
         $menu_json=json_encode($menu,JSON_UNESCAPED_UNICODE);
