@@ -116,6 +116,17 @@ class Wxcontroller extends Controller
             $url='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
             $user_info=file_get_contents($url);
             file_put_contents('wx_user.log',$user_info,FILE_APPEND);  
+        }elseif($event=='CLICK'){
+            if($xml_obj->EventKey=='keykey'){
+                $tianqi = '<xml>
+                <ToUserName><![CDATA['.$touser.']]></ToUserName>
+                <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+                <CreateTime>'.$time.'</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA['.date('Y-m-d H:i:s').'~你的心情决定天气变化'.']]></Content>
+                </xml>';
+                echo $tianqi;
+            }
         }
         
         $media_id=$xml_obj->MediaId;
@@ -184,15 +195,6 @@ class Wxcontroller extends Controller
             </Voice>
             </xml>';
             echo $yuyin;
-        }elseif($msg_type=='keykey'){
-            $tianqi = '<xml>
-                            <ToUserName><![CDATA['.$touser.']]></ToUserName>
-                            <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
-                            <CreateTime>'.$time.'</CreateTime>
-                            <MsgType><![CDATA[text]]></MsgType>
-                            <Content><![CDATA['.date('Y-m-d H:i:s').'~你的心情决定天气变化'.']]></Content>
-                            </xml>';
-            echo $tianqi;
         }
     }
 
