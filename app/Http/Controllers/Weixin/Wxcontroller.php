@@ -270,7 +270,7 @@ class Wxcontroller extends Controller
                         "key"=>"keykey",
                     ],
                     [
-                        "type"=>"miniprogram",
+                        "type"=>"click",
                         "name"=>"♥♥♥",
                         "key"=>"adfds",
                     ] 
