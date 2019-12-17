@@ -233,8 +233,24 @@ class Wxcontroller extends Controller
                   'type'=>'click',
                   'name'=>'欢迎',
                   'key'=>'caidan'
-              ],
-            ]
+              ]
+            ],
+              [
+                "name"=>"各路神仙",
+               "sub_button"=>[
+                  "type"=>"view",
+                  "name"=>"ZSJ",
+                  "url"=>"http://1905zhangshaojie.comcto.com/"
+               ],[
+                "type"=>"view",
+                "name"=>"无所不能",
+                "url"=>"https://www.baidu.com/",
+               ],[
+                "type"=>"view",
+                "name"=>"快手",
+                "url"=>"https://www.baidu.com/",
+               ]
+            ]  
         ];
         $menu_json=json_encode($menu,JSON_UNESCAPED_UNICODE);
         $client= new Client();
