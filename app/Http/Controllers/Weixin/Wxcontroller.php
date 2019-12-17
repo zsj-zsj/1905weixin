@@ -127,7 +127,7 @@ class Wxcontroller extends Controller
             $wind_dir=$arr['HeWeather6'][0]['now']['wind_dir'];
 
             $msg='天气：'.$cond_txt. '温度：'.$tmp.'风向：'.$wind_dir;
-            dd($msg);
+            
             if($xml_obj->EventKey=='keykey'){
                 $tianqi = '<xml>
                 <ToUserName><![CDATA['.$touser.']]></ToUserName>
