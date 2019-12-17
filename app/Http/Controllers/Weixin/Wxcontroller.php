@@ -268,6 +268,11 @@ class Wxcontroller extends Controller
                         "type"=>"click",
                         "name"=>"获取天气",
                         "key"=>"keykey",
+                    ],
+                    [
+                        "type"=>"miniprogram",
+                        "name"=>"♥♥♥",
+                        "key"=>"adfds",
                     ] 
                 ]
               ]
