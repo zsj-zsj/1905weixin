@@ -245,14 +245,14 @@ class Wxcontroller extends Controller
                     ],
                     [
                         "type"=>"view",
-                        "name"=>"无所不能",
-                        "url"=>"https://www.baidu.com/",
+                        "name"=>"快手",
+                        "url"=>'http://kphshanghai.m.chenzhongtech.com/s/su7bLjTB',
                     ],
                     [
                         "type"=>"view",
-                        "name"=>"快手",
-                        "url"=>"http://kphshanghai.m.chenzhongtech.com/s/su7bLjTB",
-                    ]
+                        "name"=>"无所不能",
+                        "url"=>"https://www.baidu.com/",
+                    ], 
                 ]
               ]
             ]
