@@ -250,6 +250,7 @@ class Wxcontroller extends Controller
     //菜单
     public function caidan(){
         $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
+        $urlEncode=urlEncode('http://1905zhangshaojie.comcto.com/vote');
         $menu=[
             'button' => [
               [
@@ -263,8 +264,8 @@ class Wxcontroller extends Controller
                 "sub_button"=>[
                     [
                         "type"=>"view",
-                        "name"=>"ZSJ",
-                        "url"=>"http://1905zhangshaojie.comcto.com/"
+                        "name"=>"投票",
+                        "url"=>"https://open.weixin.qq.com/connect/oauth2/authorize?appid=".env('WX_APPID')."&redirect_uri=http%3A%2F%2'.$urlEncode.'%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
                     ],
                     [
                         "type"=>"view",
