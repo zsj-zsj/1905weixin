@@ -34,7 +34,7 @@ class Usercontroller extends Controller
     }
 
     public function baidu(){
-        $url ='http://news.baidu.com/';
+        $url ='https://www.kuaishou.com/';
         $client = new Client();
         $response = $client->request('GET',$url);
         echo $response->getBody();

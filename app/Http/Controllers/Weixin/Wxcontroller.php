@@ -275,7 +275,7 @@ class Wxcontroller extends Controller
                     [
                         "type"=>"view",
                         "name"=>"点我♥",
-                        "url"=>"http://1905zhangshaojie.comcto.com/vote", 
+                        "url"=>"http://1905zhangshaojie.comcto.com/user/baidu", 
                     ]
                 ]
               ]
