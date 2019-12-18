@@ -272,11 +272,6 @@ class Wxcontroller extends Controller
                         "name"=>"获取天气",
                         "key"=>"keykey",
                     ],
-                    [
-                        "type"=>"view",
-                        "name"=>"点我♥",
-                        "url"=>"http://1905zhangshaojie.comcto.com/user/baidu", 
-                    ]
                 ]
               ]
             ]

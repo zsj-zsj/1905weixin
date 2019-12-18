@@ -34,10 +34,9 @@ class Usercontroller extends Controller
     }
 
     public function baidu(){
-        // $url ='https://www.kuaishou.com/';
-        // $client = new Client();
-        // $response = $client->request('GET',$url);
-        // echo $response->getBody();
-        echo '<a href="https://www.kuaishou.com/">点我</a>';
+        $url ='https://www.kuaishou.com/';
+        $client = new Client();
+        $response = $client->request('GET',$url);
+        echo $response->getBody();
     }
 }
