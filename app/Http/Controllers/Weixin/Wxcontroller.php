@@ -260,7 +260,7 @@ class Wxcontroller extends Controller
               ],
             
               [
-                "name"=>"各路神仙",
+                "name"=>"菜单",
                 "sub_button"=>[
                     [
                         "type"=>"view",
@@ -272,11 +272,6 @@ class Wxcontroller extends Controller
                         "name"=>"获取天气",
                         "key"=>"keykey",
                     ],
-                    [
-                        "type"=>"click",
-                        "name"=>"Thanks",
-                        "key"=>"adfds",
-                    ] 
                 ]
               ]
             ]
