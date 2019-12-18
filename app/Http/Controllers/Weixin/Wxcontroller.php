@@ -255,7 +255,7 @@ class Wxcontroller extends Controller
             'button' => [
               [
                   'type'=>'click',
-                  'name'=>'欢迎',
+                  'name'=>'请点击菜单~',
                   'key'=>'caidan'
               ],
             
@@ -272,6 +272,11 @@ class Wxcontroller extends Controller
                         "name"=>"获取天气",
                         "key"=>"keykey",
                     ],
+                    [
+                        "type"=>"view",
+                        "name"=>"点我♥",
+                        "url"=>"http://1905zhangshaojie.comcto.com/vote", 
+                    ]
                 ]
               ]
             ]
