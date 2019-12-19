@@ -22,6 +22,10 @@ class VoteController extends Controller
         $openid=$token['openid'];
         $xinxi=$this->user($access_token,$openid);
         
+        //保存用户信息
+        $xinxi_key='h:u:'.$token['openid'];
+        Redis::hMset($xinxi_key,$xinxi);
+
         //存
         $key='ss:vote:zsj';
         //判断是否投票
@@ -34,7 +38,9 @@ class VoteController extends Controller
         echo '投票总人数：'.$total;echo '<br>';
         $number=Redis::zRange($key,0,-1,true);   //投票人openid
         foreach($number as $k=>$v){
-            echo "用户：".$k.';'.'投票时间：'.date('Y-m-d H:i:s',$v);echo '<br>';
+            $uk='h:u:'.$k;
+            $u=Redis::hgetAll($uk);
+            echo "用户：".$k.';'.'投票时间：'.date('Y-m-d H:i:s',$v).'用户头像'.'<img src="'.$u['headimgurl'].'">';echo '<br>';
         }   
     }
     
