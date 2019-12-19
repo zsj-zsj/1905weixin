@@ -21,7 +21,8 @@ class VoteController extends Controller
         $access_token=$token['access_token'];
         $openid=$token['openid'];
         $xinxi=$this->user($access_token,$openid);
-        
+        dd($xinxi);
+
         //保存用户信息
         $xinxi_key='h:u:'.$token['openid'];
         Redis::hMset($xinxi_key,$xinxi);
