@@ -11,10 +11,6 @@ class IndexController extends Controller
     public function index(){
         $code=$_GET['code'];
         $data=$this->accesstoken($code);
-        
-        if(empty($token['openid'])){
-            return "请先返回关注谢谢";
-        }
 
         $openid=$data['openid'];
         $tu=WxUserModel::where(['openid'=>$openid])->first();
