@@ -273,7 +273,7 @@ class Wxcontroller extends Controller
                         "key"=>"keykey",
                     ],
                     [
-                        'type'=>'click',
+                        'type'=>'view',
                         'name'=>'点我♥',
                         'url'=>'http://kphshanghai.m.chenzhongtech.com/s/fs1lNKnO'
                     ]
