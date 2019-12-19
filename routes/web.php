@@ -31,4 +31,5 @@ Route::post('/wx','Weixin\Wxcontroller@receiv');   //接受微信推送事件
 Route::get('/wx/getMedia','Weixin\Wxcontroller@getMedia');  //图片
 Route::get('/wx/caidan','Weixin\Wxcontroller@caidan');  //菜单
 
-Route::get('/vote','Weixin\VoteController@index');
+Route::get('/vote','Weixin\VoteController@index');   //投票
+Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss
