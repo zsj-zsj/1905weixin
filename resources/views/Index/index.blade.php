@@ -32,8 +32,8 @@
 		</div>
 		<!-- end site brand	 -->
 		<div class="side-nav-panel-right">
-            <a href="<img src="{{$tu['headimgurl']}}" width="50 data-activates="slide-out-right" class="side-nav-left"><i class="fa fa-user"></i></a>
-            
+            <a href="#" data-activates="slide-out-right" class="side-nav-left"><i class="fa fa-user"></i></a>
+            {{-- <img src="{{$tu['headimgurl']}}" width="50"> --}}
 		</div>
 	</div>
 	<!-- end navbar top -->
@@ -42,8 +42,8 @@
 	<div class="side-nav-panel-right">
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
 			<li class="profil">
-				<img src="img/profile.jpg" alt="">
-				<h2>John Doe</h2>
+				<img src="{{$tu['headimgurl']}}" alt="">
+				<h2> {{$tu['nickname']}} </h2>
 			</li>
 			<li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
 			<li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>
