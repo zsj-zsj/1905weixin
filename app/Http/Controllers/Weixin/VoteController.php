@@ -23,6 +23,9 @@ class VoteController extends Controller
 
         //获取access_token
         $token=$this->code($code);
+        if(empty($token['access_token'])){
+            return "谁叫你刷新的？请重新进入";
+        }
         //获取用户信息
         $access_token=$token['access_token'];
         $openid=$token['openid'];
