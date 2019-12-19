@@ -17,7 +17,7 @@ class VoteController extends Controller
     public function index(){
         $data=$_GET;
         if(empty($data)){
-            return "想干嘛?";
+            return "想干嘛？在微信访问";
         }
         $code=$data['code'];
 
@@ -40,7 +40,7 @@ class VoteController extends Controller
         $key='ss:vote:zsj';
         //判断是否投票
         if(Redis::zrank($key,$token['openid'])){
-            echo "已投票";
+            echo "已投票";echo '<br>';
         }else{
             Redis::Zadd($key,time(),$openid);
         }
