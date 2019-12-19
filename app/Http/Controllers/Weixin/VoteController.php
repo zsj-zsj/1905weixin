@@ -47,7 +47,7 @@ class VoteController extends Controller
         foreach($number as $k=>$v){
             $uk='h:u:'.$k;
             $u=Redis::hgetAll($uk);
-            echo "用户：".$k.';'.'投票时间：'.date('Y-m-d H:i:s',$v).'用户头像'.'<img src="'.$u['headimgurl'].'">';echo '<br>';
+            echo "用户：".$k.'；投票时间：'.date('Y-m-d H:i:s',$v).'；用户头像'.'<img src="'.$u['headimgurl'].'">';echo '<br>';
         }   
     }
     
