@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('phpinfo', function () {
     phpinfo();
 });
+
+Route::get('/','Index\IndexController@index');  //商城首页
+
 
 
 Route::get('user/create','User\Usercontroller@create');
