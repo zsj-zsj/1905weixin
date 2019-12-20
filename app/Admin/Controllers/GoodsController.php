@@ -27,11 +27,13 @@ class GoodsController extends AdminController
         $grid = new Grid(new WxGoodsModel);
 
         $grid->column('id', __('Id'));
-        $grid->column('img', __('Img'));
-        $grid->column('price', __('Price'));
-        $grid->column('goods_name', __('Goods name'));
+        $grid->column('img', __('商品图片'))->image();
+        $grid->column('price', __('商品价格'));
+        $grid->column('goods_name', __('商品名称'));
+        $grid->column('desc', __('商品详情'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        
 
         return $grid;
     }
@@ -68,6 +70,7 @@ class GoodsController extends AdminController
         $form->image('img', __('商品图片'));
         $form->number('price', __('商品价格'));
         $form->text('goods_name', __('商品名称'));
+        $form->ckeditor('desc');
 
         return $form;
     }
