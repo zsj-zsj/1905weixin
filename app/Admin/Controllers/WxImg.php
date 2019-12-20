@@ -15,7 +15,7 @@ class WxImg extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\WxImgModel';
+    protected $title = '图片素材';
 
     /**
      * Make a grid builder.

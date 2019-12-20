@@ -15,7 +15,7 @@ class GoodsController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\WxGoodsModel';
+    protected $title = '商品管理';
 
     /**
      * Make a grid builder.

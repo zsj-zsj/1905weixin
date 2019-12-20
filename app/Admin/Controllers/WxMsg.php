@@ -15,7 +15,7 @@ class WxMsg extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\WxMsgModel';
+    protected $title = '留言管理';
 
     /**
      * Make a grid builder.

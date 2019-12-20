@@ -15,7 +15,7 @@ class WxgVoice extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\WxVoiceModel';
+    protected $title = '语音素材';
 
     /**
      * Make a grid builder.

@@ -122,10 +122,10 @@
 	<div class="pages section">
 		<div class="container">
 			<div class="shop-single">
-				<img src="/img/shop-single.png" alt="">
-				<h5>Fashion Men's</h5>
-				<div class="price">$20 <span>$28</span></div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eaque in non delectus, error iste veniam commodi mollitia, officia possimus, repellendus maiores doloribus provident. Itaque, ab perferendis nemo tempore! Accusamus</p>
+				<img src="/storage/{{$index->img}}" alt="">
+				<h5>{{$index->goods_name}}</h5>
+				<div class="price">${{$index->price}} <span></span></div>
+				<p>{!! $index->desc !!}</p>
 				<button type="button" class="btn button-default">ADD TO CART</button>
 			</div>
 			<div class="review">
