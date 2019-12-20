@@ -22,8 +22,9 @@ class IndexController extends Controller
             $userinfo=$this->userinfo($data['access_token'],$data['openid']);
             WxUserModel::insert();
         }
-
-        return view('layouts.weixin',['tu'=>$tu]);
+        session(['headimgurl'=>$tu['headimgurl']]);
+        session(['nickname'=>$tu['nickname']]);
+        return view('Index.index');
     }
 
     //根据code获取accesstoken

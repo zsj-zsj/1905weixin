@@ -4,6 +4,8 @@
 
 
 
+
+
 	<!-- cart menu -->
 	<div class="menus" id="animatedModal">
 		<div class="close-animatedModal close-icon">
