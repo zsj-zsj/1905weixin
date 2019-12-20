@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\WxUserModel; 
-use App\Model\WxGoodsModel;
 
 class IndexController extends Controller
 {
@@ -43,9 +42,4 @@ class IndexController extends Controller
         $json=json_decode($info,true);
         return $json;
     }
-
-    public function goods(){
-        $goods=WxGoodsModel::get();
-       return view('index.index',['goods'=>$goods]);
-   }
 }

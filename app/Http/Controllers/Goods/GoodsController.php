@@ -8,9 +8,6 @@ use App\Model\WxGoodsModel;
 
 class GoodsController extends Controller
 {
-    
-
-
     //商品详情页
     public function index(){
         $goods_id=request()->input('id');
