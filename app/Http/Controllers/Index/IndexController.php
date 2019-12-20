@@ -23,7 +23,7 @@ class IndexController extends Controller
             WxUserModel::insert();
         }
 
-        return view('Index.index',['tu'=>$tu]);
+        return view('layouts.weixin',['tu'=>$tu]);
     }
 
     //根据code获取accesstoken
