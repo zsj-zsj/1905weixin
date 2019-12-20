@@ -8,10 +8,10 @@ use App\Model\WxGoodsModel;
 
 class GoodsController extends Controller
 {
-    public function goods(){
-         $goods=WxGoodsModel::get();
-        return view('index.index',['goods'=>$goods]);
-    }
+    // public function goods(){
+    //      $goods=WxGoodsModel::get();
+    //     return view('index.index',['goods'=>$goods]);
+    // }
 
 
     //商品详情页

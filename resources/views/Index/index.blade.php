@@ -208,7 +208,7 @@
 	<!-- end quote -->
 
 	<!-- product -->
-	@foreach ($goods as $v)
+	{{-- @foreach ($goods as $v)
 	<div class="section product">
 		<div class="container">
 			<div class="section-head">
@@ -230,7 +230,7 @@
 			</div>
 		</div>
 	</div>
-	@endforeach
+	@endforeach --}}
 	<!-- end product -->
 
 	<!-- promo -->

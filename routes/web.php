@@ -24,6 +24,7 @@ Route::get('/goods/detail','Goods\GoodsController@index');
 
 
 
+
 Route::get('user/create','User\Usercontroller@create');
 Route::get('user/rediss','User\Usercontroller@rediss');
 Route::get('user/baidu','User\Usercontroller@baidu');
