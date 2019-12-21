@@ -215,23 +215,21 @@
 				<h4>NEW PRODUCT</h4>
 				<div class="divider-top"></div>
 				<div class="divider-bottom"></div>
-			</div>
-			@foreach ($goodsindex as $v)		
+			</div>		
 			<div class="row">
+				@foreach ($goodsindex as $v)
 				<div class="col s6">
-						
 					<div class="content">
 						<img src="/storage/{{$v->img}}"   alt="">
 						<h6><a href="{{url('/goods/detail/'.$v->id)}}">{{$v->goods_name}}</a></h6>
 						<div class="price">
 							${{$v->price}} <span></span>
 						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
-					
+						<button class="btn button-default">加入购物车</button>
+					</div>	
 				</div>
+				@endforeach
 			</div>
-			@endforeach
 		</div>
 	</div>
 	
