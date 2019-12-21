@@ -257,7 +257,7 @@ class Wxcontroller extends Controller
             'button' => [
               [
                   'type'=>'view',
-                  'name'=>'商城~',
+                  'name'=>'商城',
                   "url"=>'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8bc80f5949fda528&redirect_uri='.$urlEncodeabc.'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
               ],
             
@@ -290,5 +290,26 @@ class Wxcontroller extends Controller
             'body'=>$menu_json
         ]);
         echo $response->getBody();
+    }
+
+    //群发消息
+    public function sendmsg(){
+        $openid=WxUserModel::select('openid','nickname','sex')->get()->toArray();
+        $open=array_column($openid,'openid');
+        $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
+        $msg=date('Y-m-d H:i:s').'大吉大利 今晚吃鸡';
+        $data=[
+            'touser'=>$open,
+            'msgtype'=>'text',
+            'text'=>['content'=>$msg]
+        ];
+        
+        $client=new Client();
+        $response=$client->request('POST',$url,[
+            'body'=>json_encode($data,JSON_UNESCAPED_UNICODE),
+        ]);
+
+        echo $response->getBody();
+
     }
 }

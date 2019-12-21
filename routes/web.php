@@ -20,8 +20,7 @@ Route::get('phpinfo', function () {
 });
 
 Route::get('/','Index\IndexController@index');  //商城首页
-Route::get('/goods/detail/{id}','Goods\GoodsController@index');
-// Route::get('/goodsindex','Index\IndexController@goodsindex');
+Route::get('/goods/detail/{id}','Goods\GoodsController@index');  //商品详情
 
 
 
@@ -37,6 +36,7 @@ Route::get('/wx','Weixin\Wxcontroller@checkSignature');
 Route::post('/wx','Weixin\Wxcontroller@receiv');   //接受微信推送事件
 Route::get('/wx/getMedia','Weixin\Wxcontroller@getMedia');  //图片
 Route::get('/wx/caidan','Weixin\Wxcontroller@caidan');  //菜单
+Route::get('/wx/sendmsg','Weixin\Wxcontroller@sendmsg');  //菜单
 
 Route::get('/vote','Weixin\VoteController@index');   //投票
 Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss
