@@ -208,7 +208,7 @@
 	<!-- end quote -->
 
 	<!-- product -->
-	@foreach ($goodsindex as $v)
+	
 	<div class="section product">
 		<div class="container">
 			<div class="section-head">
@@ -218,19 +218,21 @@
 			</div>		
 			<div class="row">
 				<div class="col s6">
+						@foreach ($goodsindex as $v)
 					<div class="content">
-						<img src="/storage/{{$v->img}}" alt="">
+						<img src="/storage/{{$v->img}}"   alt="">
 						<h6><a href="{{url('/goods/detail/'.$v->id)}}">{{$v->goods_name}}</a></h6>
 						<div class="price">
 							${{$v->price}} <span></span>
 						</div>
 						<button class="btn button-default">ADD TO CART</button>
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
 	</div>
-	@endforeach
+	
 	<!-- end product -->
 
 	<!-- promo -->
