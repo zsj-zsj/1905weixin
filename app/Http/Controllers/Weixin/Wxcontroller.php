@@ -296,19 +296,22 @@ class Wxcontroller extends Controller
     public function sendmsg(){
         $openid=WxUserModel::select('openid','nickname','sex')->get()->toArray();
         $open=array_column($openid,'openid');
-        $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
-        $msg=date('Y-m-d H:i:s').'大吉大利 今晚吃鸡';
+        $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=".$this->access_token;
+        
+        $msg=date('Y-m-d H:i:s').',大吉大利 今晚吃鸡';
         $data=[
             'touser'=>$open,
             'msgtype'=>'text',
-            'text'=>['content'=>$msg]
+            'text'=>["content"=>$msg]
         ];
+    
+        $json=json_encode($data,JSON_UNESCAPED_UNICODE);
         
-        $client=new Client();
+        $client= new Client();
         $response=$client->request('POST',$url,[
-            'body'=>json_encode($data,JSON_UNESCAPED_UNICODE),
+            'body' =>$json
         ]);
-
+        
         echo $response->getBody();
 
     }
