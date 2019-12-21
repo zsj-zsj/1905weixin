@@ -11,17 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('phpinfo', function () {
     phpinfo();
 });
 
-Route::get('/index/index','Index\IndexController@index');  //商城首页
+Route::get('/','Index\IndexController@index');  //商城首页
 Route::get('/goods/detail/{id}','Goods\GoodsController@index');
-
+// Route::get('/goodsindex','Index\IndexController@goodsindex');
 
 
 
