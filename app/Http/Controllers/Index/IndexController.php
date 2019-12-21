@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\WxUserModel; 
+use App\Model\WxGoodsModel;
 
 class IndexController extends Controller
 {
@@ -13,6 +14,7 @@ class IndexController extends Controller
         $data=$this->accesstoken($code);
 
         $openid=$data['openid'];
+        
         $tu=WxUserModel::where(['openid'=>$openid])->first();
         if($tu){
             //用户存在
@@ -41,5 +43,11 @@ class IndexController extends Controller
         $info=file_get_contents($url);
         $json=json_decode($info,true);
         return $json;
+    }
+
+    //商品详情页
+    public function goodsindex($id){
+        $index=WxGoodsModel::where('id','=',$id)->first();
+        return view('goods.detail',['index'=>$index]);
     }
 }
