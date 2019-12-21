@@ -8,10 +8,7 @@ use App\Model\WxGoodsModel;
 
 class GoodsController extends Controller
 {
-    // public function indexgoods(){
-    //     $goodsindex=WxGoodsModel::get();
-    //     return view('index.index',['goodsindex'=>$goodsindex]);
-    // }
+
 
 
 

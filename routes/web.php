@@ -21,7 +21,6 @@ Route::get('phpinfo', function () {
 
 Route::get('/','Index\IndexController@index');  //商城首页
 Route::get('/goods/detail/{id}','Goods\GoodsController@index');
-// Route::get('/goodsindex','Index\IndexController@goodsindex');
 
 
 
