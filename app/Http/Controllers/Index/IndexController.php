@@ -45,9 +45,9 @@ class IndexController extends Controller
         return $json;
     }
 
-    //商品详情页
-    public function goodsindex($id){
-        $index=WxGoodsModel::where('id','=',$id)->first();
-        return view('goods.detail',['index'=>$index]);
-    }
+    // //商品详情页
+    // public function goodsindex($id){
+    //     $index=WxGoodsModel::where('id','=',$id)->first();
+    //     return view('goods.detail',['index'=>$index]);
+    // }
 }
