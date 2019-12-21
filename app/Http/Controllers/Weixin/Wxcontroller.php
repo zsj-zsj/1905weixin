@@ -307,7 +307,7 @@ class Wxcontroller extends Controller
             $wind_dir=$arr['HeWeather6'][0]['now']['wind_dir'];
 
             $msg='天气：'.$cond_txt."\n" .'温度：'.$tmp. "\n" .'风向：'.$wind_dir;
-            $timea='当前时间'.date('Y-m-d H:i:s')."\n".$msg.'大吉大利 晚上吃鸡 over over';
+            $timea='当前时间'.date('Y-m-d H:i:s')."\n".$msg."\n".'大吉大利 晚上吃鸡 over over';
 
         $data=[
             'touser'=>$open,
