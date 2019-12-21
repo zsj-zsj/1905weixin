@@ -298,11 +298,21 @@ class Wxcontroller extends Controller
         $open=array_column($openid,'openid');
         $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=".$this->access_token;
         
-        $msg=date('Y-m-d H:i:s').',大吉大利 今晚吃鸡';
+            $weather_api="https://free-api.heweather.net/s6/weather/now?location=beijing&key=b7866e916696476b8e04239d77e6a008";
+            $weather_info=file_get_contents($weather_api);
+            $arr=json_decode($weather_info,true);
+           
+            $cond_txt=$arr['HeWeather6'][0]['now']['cond_txt'];
+            $tmp=$arr['HeWeather6'][0]['now']['tmp'];
+            $wind_dir=$arr['HeWeather6'][0]['now']['wind_dir'];
+
+            $msg='天气：'.$cond_txt."\n" .'温度：'.$tmp. "\n" .'风向：'.$wind_dir;
+            $timea='当前时间'.date('Y-m-d H:i:s')."\n".$msg;
+
         $data=[
             'touser'=>$open,
             'msgtype'=>'text',
-            'text'=>["content"=>$msg]
+            'text'=>["content"=>$timea]
         ];
     
         $json=json_encode($data,JSON_UNESCAPED_UNICODE);
