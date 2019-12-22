@@ -232,7 +232,13 @@
 			</div>
 			<div class="pagination-product">
 				<ul>
-					<li class="active">{{$goodsindex->appends($fenye)->links()}}</li>
+					@if($fenye){
+						<li class="active">{{$goodsindex->appends($fenye)->links()}}</li>	
+					}@else{
+						<li class="active">{{$goodsindex->appends($fenye)->links()}}</li>
+						<li><a href="{{url('index/index')}}">{{$goodsindex->appends($fenye)->links()}}</a></li>
+					}
+					@endif
 				</ul>
 			</div>
 		</div>
