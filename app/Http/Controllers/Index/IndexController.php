@@ -27,7 +27,8 @@ class IndexController extends Controller
         session(['headimgurl'=>$tu['headimgurl']]);
         session(['nickname'=>$tu['nickname']]);
         $goodsindex=WxGoodsModel::paginate(4);
-        return view('Index.index',['goodsindex'=>$goodsindex]);
+        $fenye=request()->all();
+        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye]);
     }
 
     //根据code获取accesstoken

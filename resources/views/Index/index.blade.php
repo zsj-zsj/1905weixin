@@ -232,7 +232,7 @@
 			</div>
 			<div class="pagination-product">
 				<ul>
-					<li class="active">{{$goodsindex->links()}}</li>
+					<li class="active">{{$goodsindex->appends($fenye)->links()}}</li>
 				</ul>
 			</div>
 		</div>
