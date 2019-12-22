@@ -26,7 +26,7 @@ class IndexController extends Controller
         }
         session(['headimgurl'=>$tu['headimgurl']]);
         session(['nickname'=>$tu['nickname']]);
-        $goodsindex=WxGoodsModel::get();
+        $goodsindex=WxGoodsModel::paginate(4);
         return view('Index.index',['goodsindex'=>$goodsindex]);
     }
 

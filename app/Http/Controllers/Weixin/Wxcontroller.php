@@ -323,6 +323,5 @@ class Wxcontroller extends Controller
         ]);
         
         echo $response->getBody();
-
     }
 }
