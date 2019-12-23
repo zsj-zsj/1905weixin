@@ -39,4 +39,6 @@ Route::get('/wx/caidan','Weixin\Wxcontroller@caidan');  //菜单
 Route::get('/wx/sendmsg','Weixin\Wxcontroller@sendmsg');  //菜单
 
 Route::get('/vote','Weixin\VoteController@index');   //投票
+Route::get('/wx/rwm','Weixin\Wxcontroller@rwm');   //二维码
+
 Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss

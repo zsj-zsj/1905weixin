@@ -251,8 +251,9 @@ class Wxcontroller extends Controller
     public function caidan(){
         $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
         $urlEncode=urlencode('http://1905zhangshaojie.comcto.com/vote');
-
         $urlEncodeabc=urlencode('http://1905zhangshaojie.comcto.com/');
+        $erweima=urlencode('http://1905zhangshaojie.comcto.com/wx/rwm');
+        
         $menu=[
             'button' => [
               [
@@ -277,7 +278,7 @@ class Wxcontroller extends Controller
                     [
                         'type'=>'view',
                         'name'=>'点我♥',
-                        'url'=>'http://kphshanghai.m.chenzhongtech.com/s/fs1lNKnO'
+                        'url'=>'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8bc80f5949fda528&redirect_uri='.$erweima.'&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect'
                     ]
                 ]
               ]
@@ -323,5 +324,38 @@ class Wxcontroller extends Controller
         ]);
         
         echo $response->getBody();
+    }
+
+    //生成二维码
+    public function rwm(){
+        $url="https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=".$this->access_token;
+        $data=[
+            'expire_seconds'=>604800,
+            'action_name'=>'QR_SCENE',
+            'action_info'=>[
+                'scene'=>[
+                    'scene_id'=>'1012'
+                ]
+            ]
+        ];
+
+        $json=json_encode($data,JSON_UNESCAPED_UNICODE);
+        $client= new Client();
+        $response=$client->request('POST',$url,[
+            'body'=> $json
+        ]);
+
+        echo $ticket=$response->getBody();
+
+        $sc_ticket=json_decode($ticket,true);
+       // dump($sc_ticket);
+        $url_ticket=urlencode($sc_ticket['ticket']);
+        //dump($url_ticket);
+        $ticket_url='https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket='.$url_ticket;
+        return redirect($ticket_url);
+
+        // $urll=file_get_contents($ticket_url);
+        // file_put_contents('rwm.jpg',$urll);
+
     }
 }
