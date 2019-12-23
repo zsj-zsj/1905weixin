@@ -91,7 +91,7 @@
 				imgUrl: 'http://1905zhangshaojie.comcto.com/public/img/aaa.jpg', // 分享图标
 				success: function () {
 					// 设置成功
-					alert('分享成功喽');
+					alert('分享成功了');
 				}
 			})
 		});
