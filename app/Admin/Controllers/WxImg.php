@@ -27,9 +27,7 @@ class WxImg extends AdminController
         $grid = new Grid(new WxImgModel);
 
         $grid->column('img_id', __('Img id'));
-        $grid->column('img', __('Img'))->display(function($img){
-            return '<img src="http://1905zhangshaojie.comcto.com/'.$img.' "  width="100" height="100 ">';
-        });
+        $grid->column('img', __('Img'))->image();
         $grid->column('time', __('发送时间'))->display(function($time){
             return date('Y-m-d H:i:s',$time);
         });
