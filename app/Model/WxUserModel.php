@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Redis;
 
 class WxUserModel extends Model
 {
@@ -41,7 +42,7 @@ class WxUserModel extends Model
         Redis::expire($key,3600);
         return $data['ticket'];
     }
-    //签名
+    //
     public static function jsapiSign($ticket,$url,$param)
     {
         $string1 = "jsapi_ticket={$ticket}&noncestr={$param['nonceStr']}&timestamp={$param['timestamp']}&url=".$url;

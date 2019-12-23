@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\WxUserModel; 
 use App\Model\WxGoodsModel;
-
 use Illuminate\Support\Str;
+
 
 class IndexController extends Controller
 {
@@ -30,7 +30,6 @@ class IndexController extends Controller
         session(['nickname'=>$tu['nickname']]);
         $goodsindex=WxGoodsModel::paginate(4);
         $fenye=request()->all();
-        
 
 
         //微信配置
@@ -48,7 +47,7 @@ class IndexController extends Controller
         $jsapi_signature = WxUserModel::jsapiSign($ticket,$url,$wx_config);
         $wx_config['signature'] = $jsapi_signature;
 
-        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,'wxconfig'=>$wx_config]);
+        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,'wx_config'=>$wx_config]);
     }
 
     //根据code获取accesstoken
