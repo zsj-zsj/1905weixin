@@ -125,25 +125,25 @@
 			<li>
 				<img src="img/ccc.jpg" alt="">
 				<div class="caption slider-content  center-align">
-					<h2>WELCOME TO MSTORE</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<h2>在这个世界</h2>
+					<h4>In this world you can either.</h4>
+					<a href="" class="btn button-default">GOODS</a>
 				</div>
 			</li>
 			<li>
 				<img src="img/bbb.jpg" alt="">
 				<div class="caption slider-content center-align">
-					<h2>JACKETS BUSINESS</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<h2>办事情一旦偷懒就绝对做不好</h2>
+					<h4>do things the easy way or the right way.</h4>
+					<a href="" class="btn button-default">GOODS</a>
 				</div>
 			</li>
 			<li>
 				<img src="img/aaa.jpg" alt="">
 				<div class="caption slider-content center-align">
-					<h2>FASHION SHOP</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<h2>坚持你的选择没错的</h2>
+					<h4>Take your pick you cant go wrong.</h4>
+					<a href="" class="btn button-default">GOODS</a>
 				</div>
 			</li>
 		</ul>
