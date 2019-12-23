@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\WxUserModel; 
 use App\Model\WxGoodsModel;
 
+use Illuminate\Support\Str;
+
 class IndexController extends Controller
 {
     public function index(){
@@ -28,7 +30,25 @@ class IndexController extends Controller
         session(['nickname'=>$tu['nickname']]);
         $goodsindex=WxGoodsModel::paginate(4);
         $fenye=request()->all();
-        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye]);
+        
+
+
+        //微信配置
+        $nonceStr = Str::random(8);
+        $signature = "";
+        $wx_config = [
+            'appId'     => env('WX_APPID'),
+            'timestamp' => time(),
+            'nonceStr'  => $nonceStr,
+            //'signature' => $signature,
+            'jsApiList' => ['updateAppMessageShareData']
+        ];
+        $ticket = WxUserModel::getJsapiTicket();
+        $url = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];;      //  当前url
+        $jsapi_signature = WxUserModel::jsapiSign($ticket,$url,$wx_config);
+        $wx_config['signature'] = $jsapi_signature;
+
+        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,'wxconfig'=>$wx_config]);
     }
 
     //根据code获取accesstoken

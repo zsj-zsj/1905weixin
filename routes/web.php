@@ -22,7 +22,12 @@ Route::get('phpinfo', function () {
 Route::get('/','Index\IndexController@index');  //商城首页
 Route::get('/goods/detail/{id}','Goods\GoodsController@index');  //商品详情
 
-
+//分享
+Route::get('/test/hello',function(){
+    $current_url = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
+    echo 'CURRENT_URL: '.$current_url;echo '</br>';
+    echo '<pre>';print_r($_SERVER);echo '</pre>';
+});
 
 
 
