@@ -47,11 +47,7 @@ class IndexController extends Controller
         $jsapi_signature = WxUserModel::jsapiSign($ticket,$url,$wx_config);
         $wx_config['signature'] = $jsapi_signature;
 
-        $data=[
-            'wx_config'=>$wx_config
-        ];
-
-        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,$data]);
+        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,'wx_config'=>$wx_config]);
     }
 
     //根据code获取accesstoken
