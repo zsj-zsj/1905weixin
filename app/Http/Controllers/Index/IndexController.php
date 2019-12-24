@@ -28,14 +28,15 @@ class IndexController extends Controller
         }
         session(['headimgurl'=>$tu['headimgurl']]);
         session(['nickname'=>$tu['nickname']]);
-        $goodsindex=WxGoodsModel::paginate(4);
-        $fenye=request()->all();
 
-
+        //返回到这个视图
+        return  redirect('/');
     }
 
 
     public function index(){
+        $goodsindex=WxGoodsModel::paginate(4);
+        $fenye=request()->all();
 
         //微信配置
         $nonceStr = Str::random(8);
