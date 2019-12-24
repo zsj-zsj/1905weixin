@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
-    public function index(){
+    public function  wxlogin(){
         $code=$_GET['code'];
         $data=$this->accesstoken($code);
         
@@ -31,6 +31,11 @@ class IndexController extends Controller
         $goodsindex=WxGoodsModel::paginate(4);
         $fenye=request()->all();
 
+
+    }
+
+
+    public function index(){
 
         //微信配置
         $nonceStr = Str::random(8);

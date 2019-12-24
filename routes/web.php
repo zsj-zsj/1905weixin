@@ -20,6 +20,7 @@ Route::get('phpinfo', function () {
 });
 
 Route::get('/','Index\IndexController@index');  //商城首页
+Route::get('/index/wxlogin','Index\IndexController@wxlogin');  //商城首页
 Route::get('/goods/detail/{id}','Goods\GoodsController@index');  //商品详情
 
 //分享

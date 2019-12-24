@@ -251,7 +251,7 @@ class Wxcontroller extends Controller
     public function caidan(){
         $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->access_token;
         $urlEncode=urlencode('http://1905zhangshaojie.comcto.com/vote');
-        $urlEncodeabc=urlencode('http://1905zhangshaojie.comcto.com/');
+        $urlEncodeabc=urlencode('http://1905zhangshaojie.comcto.com/index/wxlogin');
         $erweima=urlencode('http://1905zhangshaojie.comcto.com/wx/rwm');
         
         $menu=[
