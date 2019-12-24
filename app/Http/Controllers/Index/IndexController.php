@@ -36,7 +36,7 @@ class IndexController extends Controller
         session(['nickname'=>$tu['nickname']]);
 
         //返回到这个视图
-        //return  redirect('/');
+        return  redirect('/');
     }
 
 
