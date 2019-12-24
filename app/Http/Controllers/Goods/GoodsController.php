@@ -21,7 +21,7 @@ class GoodsController extends Controller
             'appId'     => env('WX_APPID'),
             'timestamp' => time(),
             'nonceStr'  => $nonceStr,
-            //'signature' => $signature,
+            'signature' => $signature,
             'jsApiList' => ['updateAppMessageShareData']
         ];
         $ticket = WxUserModel::getJsapiTicket();
