@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Goods;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\WxGoodsModel;
+use Illuminate\Support\Str;
+use App\Model\WxUserModel;
 
 class GoodsController extends Controller
 {
