@@ -13,10 +13,14 @@ class IndexController extends Controller
 {
     public function  wxlogin(){
         $code=$_GET['code'];
-        $data=$this->accesstoken($code);
+        //$data=$this->accesstoken($code);
+
+        $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".env('WX_APPID')."&secret=".env('WX_APPSECRET')."&code={$code}&grant_type=authorization_code";
+        $res_json = file_get_contents($url);    // 请求接口，获取json响应
+        $data = json_decode($res_json,true);
         
         $openid=$data['openid'];
-        
+
         $tu=WxUserModel::where(['openid'=>$openid])->first();
         if($tu){
             //用户存在
@@ -26,6 +30,8 @@ class IndexController extends Controller
             $userinfo=$this->userinfo($data['access_token'],$data['openid']);
             WxUserModel::insert();
         }
+
+
         session(['headimgurl'=>$tu['headimgurl']]);
         session(['nickname'=>$tu['nickname']]);
 
