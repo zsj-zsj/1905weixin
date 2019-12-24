@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function index(){
         $code=$_GET['code'];
         $data=$this->accesstoken($code);
-
+        
         $openid=$data['openid'];
         
         $tu=WxUserModel::where(['openid'=>$openid])->first();
@@ -47,7 +47,11 @@ class IndexController extends Controller
         $jsapi_signature = WxUserModel::jsapiSign($ticket,$url,$wx_config);
         $wx_config['signature'] = $jsapi_signature;
 
-        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,'wx_config'=>$wx_config]);
+        $data=[
+            'wx_config'=>$wx_config
+        ];
+
+        return view('Index.index',['goodsindex'=>$goodsindex,'fenye'=>$fenye,$data]);
     }
 
     //根据code获取accesstoken
