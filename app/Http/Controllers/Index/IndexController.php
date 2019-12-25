@@ -8,7 +8,6 @@ use App\Model\WxUserModel;
 use App\Model\WxGoodsModel;
 use Illuminate\Support\Str;
 
-
 class IndexController extends Controller
 {
     public function  wxlogin(){

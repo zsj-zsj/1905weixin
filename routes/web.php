@@ -48,3 +48,12 @@ Route::get('/vote','Weixin\VoteController@index');   //投票
 Route::get('/wx/rwm','Weixin\Wxcontroller@rwm');   //二维码
 
 Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss
+
+
+
+
+
+
+
+
+Route::get('/lx/wx','Lianxi\Wx@checkSignature');
