@@ -225,16 +225,21 @@
 						<div class="price">
 							${{$v->price}} <span></span>
 						</div>
-						<button class="btn button-default">加入购物车</button>
+						<button class="btn button-default">GOODSSHOP</button>
 					</div>	
 				</div>
 				@endforeach
 			</div>
-			<div class="pagination-product">
+			<div>
+				<ul>
+					<li>{{$goodsindex->appends($fenye)->links()}}</li>
+				</ul>
+			</div>
+			{{-- <div class="pagination-product">   分页样式
 				<ul>
 					<li class="active">{{$goodsindex->appends($fenye)->links()}}</li>
 				</ul>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 	
