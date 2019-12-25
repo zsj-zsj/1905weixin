@@ -25,4 +25,15 @@ class Wx extends Controller
     }
 
 
+    public function clsj(){
+        $rizhi='lianyi.log';
+        $datdatea=date('Y-m-d H:i:s').$rizhi;
+        $file=file_get_contents("php://input");
+        $xmlsj=file_put_contents($file,$date,FILE_APPEND);
+        $xml=simplexml_load_string($xmlsj);
+
+
+    }
+
+
 }

@@ -57,3 +57,4 @@ Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss
 
 
 Route::get('/lx/wx','Lianxi\Wx@checkSignature');
+Route::post('/lx/clsj','Lianxi\Wx@clsj');
