@@ -63,4 +63,4 @@ Route::post('/lx/wx','Lianxi\Wx@clsj');
 
 
 
-Route::get('ks/wx','Ks\Wx@checkSignature');
+Route::get('/ks/wx','Ks\Wx@checkSignature');
