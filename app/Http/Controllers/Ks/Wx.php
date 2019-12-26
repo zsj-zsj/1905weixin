@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Wx extends Controller
 {
-    private function checkSignature()
+    public function checkSignature()
     {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
