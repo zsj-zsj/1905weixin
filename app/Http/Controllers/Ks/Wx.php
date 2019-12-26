@@ -19,7 +19,7 @@ class Wx extends Controller
     $tmpStr = implode( $tmpArr );
     $tmpStr = sha1( $tmpStr );   
     if( $tmpStr == $signature ){
-        return $echourl;
+        return $echostr;
     }else{
         die;
     }
