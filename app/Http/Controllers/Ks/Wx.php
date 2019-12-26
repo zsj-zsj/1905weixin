@@ -29,8 +29,10 @@ class Wx extends Controller
         $rz='ks.log';
         $sj=file_get_contents("php//input");
         $data=date('Y-m-d H:i:s').$sj;
-        $file=file_put_contents($rz,$data,FILE_APPEND);
-        $xml=simplexml_load_string($file);
+        file_put_contents($rz,$data,FILE_APPEND);
+        $xml=simplexml_load_string($sj);
+
+
     }
 
 }
