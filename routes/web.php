@@ -26,8 +26,8 @@ Route::get('/goods/detail/{id}','Goods\GoodsController@index');  //商品详情
 //分享
 Route::get('/test/hello',function(){
     $current_url = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-    echo 'CURRENT_URL: '.$current_url;echo '</br>';
-    echo '<pre>';print_r($_SERVER);echo '</pre>';
+    //echo 'CURRENT_URL: '.$current_url;echo '</br>';
+    //echo '<pre>';print_r($_SERVER);echo '</pre>';
 });
 
 
@@ -49,19 +49,3 @@ Route::get('/wx/rwm','Weixin\Wxcontroller@rwm');   //二维码
 
 Route::get('/vote/delkey','Weixin\VoteController@delkey');    //删除rediss
 
-
-
-
-
-
-
-
-Route::get('/lx/wx','Lianxi\Wx@checkSignature');
-Route::post('/lx/wx','Lianxi\Wx@clsj');
-
-
-
-
-
-Route::get('/ks/wx','Ks\Wx@checkSignature');
-Route::post('/ks/wx','Ks\Wx@xml');

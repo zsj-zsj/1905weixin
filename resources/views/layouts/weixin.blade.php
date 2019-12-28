@@ -80,7 +80,7 @@
 				imgUrl: 'http://1905zhangshaojie.comcto.com/img/aaa.jpg', // 分享图标
 				success: function () {
 					// 设置成功
-					alert('分享成功');
+					//alert('分享成功');
 				}
 			})
 
@@ -91,7 +91,7 @@
 				imgUrl: 'http://1905zhangshaojie.comcto.com/img/aaa.jpg', // 分享图标
 				success: function () {
 					// 设置成功
-					alert('分享成功了');
+					//alert('分享成功了');
 				}
 			})
 		});
